@@ -736,13 +736,18 @@ body.dark .service-card {
   .hero-content {
     display: flex;
     flex-direction: column;
-    min-height: 82vh;
+    min-height: 72vh;
+  }
+
+  /* Основной текст — чуть ниже */
+  .hero-quote {
+    margin-top: 32px;
   }
 
   /* Кнопка "Оставить заявку" — прижата к низу */
   .hero .btn-primary {
     margin-top: auto;
-    margin-bottom: 16px;
+    margin-bottom: 40px;
     display: block;
     text-align: center;
   }
