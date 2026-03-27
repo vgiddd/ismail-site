@@ -732,10 +732,19 @@ body.dark .service-card {
     transform-style: flat;
   }
 
-  /* Кнопка "Оставить заявку" ниже на мобилке */
+  /* Hero content — флекс чтобы кнопка уходила вниз */
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    min-height: 82vh;
+  }
+
+  /* Кнопка "Оставить заявку" — прижата к низу */
   .hero .btn-primary {
-    margin-top: 48px;
+    margin-top: auto;
+    margin-bottom: 16px;
     display: block;
+    text-align: center;
   }
 
   /* Кнопка темы */
