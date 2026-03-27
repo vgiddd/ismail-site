@@ -95,10 +95,10 @@ toggleBtn.addEventListener('click', () => {
 });
 
 
-/* ── SCROLL REVEAL (fade + slide) ─────────────── */
+/* ── SCROLL REVEAL ─────────────────────────── */
 const reveals = document.querySelectorAll('.reveal');
 
-// Назначаем каскадные задержки карточкам в сетках
+// Каскадные задержки для карточек в сетках
 document.querySelectorAll('.why-grid, .services-grid').forEach(grid => {
   grid.querySelectorAll('.reveal').forEach((card, i) => {
     card.style.setProperty('--delay', `${i * 0.08}s`);
@@ -113,41 +113,36 @@ function showEl(el) {
 function hideEl(el) {
   if (el.closest('.hero')) return;
   if (!el.classList.contains('visible')) return;
+  el.classList.remove('visible');
   el.classList.add('hiding');
-  setTimeout(() => {
-    el.classList.remove('visible', 'hiding');
-  }, 450);
+  setTimeout(() => el.classList.remove('hiding'), 450);
 }
 
-// IntersectionObserver — только для появления при скролле вниз
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) showEl(entry.target);
+function checkReveals() {
+  const vh = window.innerHeight;
+  reveals.forEach(el => {
+    if (el.closest('.hero')) return;
+    const rect = el.getBoundingClientRect();
+    const inView = rect.top < vh * 0.88 && rect.bottom > vh * 0.12;
+
+    if (inView && !el.classList.contains('visible')) {
+      showEl(el);
+    } else if (!inView && el.classList.contains('visible')) {
+      hideEl(el);
+    }
   });
-}, { threshold: 0.12 });
+}
 
-reveals.forEach(el => observer.observe(el));
+window.addEventListener('scroll', checkReveals, { passive: true });
 
-// Scroll event — затухание при скролле вверх (пока элемент ещё виден)
-let lastY = window.scrollY;
-window.addEventListener('scroll', () => {
-  const y = window.scrollY;
-  if (y < lastY) {
-    reveals.forEach(el => {
-      const rect = el.getBoundingClientRect();
-      // Элемент виден и находится в нижней части экрана — затухаем
-      if (rect.top > window.innerHeight * 0.5 && rect.top < window.innerHeight) {
-        hideEl(el);
-      }
-    });
-  }
-  lastY = y;
-}, { passive: true });
-
-// Hero элементы видны сразу
+// Hero — показываем сразу
 document.querySelectorAll('.hero .reveal').forEach(el => {
-  setTimeout(() => showEl(el), parseFloat(getComputedStyle(el).getPropertyValue('--delay') || '0') * 1000 + 100);
+  const delay = parseFloat(getComputedStyle(el).getPropertyValue('--delay') || '0') * 1000;
+  setTimeout(() => showEl(el), delay + 100);
 });
+
+// Первичная проверка после загрузки
+setTimeout(checkReveals, 150);
 
 /* ── PARALLAX ───────────────────────────────── */
 const heroContent = document.querySelector('.hero-content');
