@@ -739,6 +739,12 @@ body.dark .service-card {
     min-height: 72vh;
   }
 
+  /* Бейдж — по центру между именем и чёрточкой */
+  .title-badge {
+    margin-top: 24px;
+    margin-bottom: 24px;
+  }
+
   /* Основной текст — чуть ниже */
   .hero-quote {
     margin-top: 32px;
