@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Исмаил Рамазанов — Специалист по росту бизнеса</title>
+  <link rel="stylesheet" href="css/style.css?v=23" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <!-- Кастомный курсор -->
+  <div id="cursor"></div>
+  <div id="cursor-follower"></div>
+
+  <!-- Кнопка темы -->
+  <button id="theme-toggle" title="Сменить тему">
+    <span class="ti-icon ti-sun">☀</span>
+    <span class="ti-icon ti-moon">☽</span>
+  </button>
+
+  <!-- СЕКЦИЯ 1: Личная информация -->
+  <section class="hero" id="hero">
+<div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1 class="name reveal reveal-up">Исмаил Рамазанов</h1>
+      <p class="title-badge badge-specialist reveal reveal-up" style="--delay:.15s">Специалист по росту бизнеса</p>
+      <div class="hero-divider"></div>
+      <h2 class="hero-quote reveal reveal-up" style="--delay:.35s">
+        Ваш маркетинг перестаёт быть только расходом —<br/>
+        а становится инструментом роста
+      </h2>
+      <a href="#form" class="btn-primary reveal reveal-up" style="--delay:.5s">Оставить заявку</a>
+    </div>
+    <div class="scroll-indicator">
+      <span></span>
+    </div>
+  </section>
+
+  <!-- СЕКЦИЯ 2: Почему именно я? -->
+  <section class="why-me" id="why">
+    <div class="container">
+      <h2 class="section-title reveal reveal-up">Почему именно я?</h2>
+      <div class="why-grid">
+        <div class="why-card tilt-card reveal reveal-left" style="--delay:0s">
+          <div class="why-number">01</div>
+          <p>Более <strong>20+ успешных проектов</strong> в разных нишах</p>
+        </div>
+        <div class="why-card tilt-card reveal reveal-up" style="--delay:.1s">
+          <div class="why-number">02</div>
+          <p>Полностью вникаю в бизнес и провожу <strong>глубокий анализ</strong></p>
+        </div>
+        <div class="why-card tilt-card reveal reveal-right" style="--delay:.2s">
+          <div class="why-number">03</div>
+          <p>Даю <strong>полные отчёты</strong> о проделанной работе</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- СЕКЦИЯ 3: Услуги -->
+  <section class="services" id="services">
+    <div class="container">
+      <h2 class="section-title reveal reveal-up">Мои услуги</h2>
+      <div class="services-grid">
+        <div class="service-card tilt-card reveal reveal-scale" style="--delay:.05s">
+          <div class="service-icon">📋</div>
+          <p>Составление полного контент-плана под любую нишу</p>
+        </div>
+        <div class="service-card tilt-card reveal reveal-scale" style="--delay:.1s">
+          <div class="service-icon">🤖</div>
+          <p>Автоматизация бизнес-процессов с помощью ИИ</p>
+        </div>
+        <div class="service-card tilt-card reveal reveal-scale" style="--delay:.15s">
+          <div class="service-icon">🚀</div>
+          <p>Стратегия запуска продукта</p>
+        </div>
+        <div class="service-card tilt-card reveal reveal-scale" style="--delay:.2s">
+          <div class="service-icon">📈</div>
+          <p>Рост продаж без увеличения бюджета</p>
+        </div>
+        <div class="service-card tilt-card reveal reveal-scale" style="--delay:.25s">
+          <div class="service-icon">📊</div>
+          <p>Полная стратегия роста на промежуток времени</p>
+        </div>
+        <div class="service-card tilt-card reveal reveal-scale" style="--delay:.3s">
+          <div class="service-icon">🎯</div>
+          <p>Комплексный маркетинг с целью привлечения клиентов в компанию</p>
+        </div>
+        <div class="service-card tilt-card reveal reveal-scale" style="--delay:.35s">
+          <div class="service-icon">📡</div>
+          <p>Таргетированная реклама</p>
+        </div>
+        <div class="service-card tilt-card reveal reveal-scale" style="--delay:.4s">
+          <div class="service-icon">🎨</div>
+          <p>Креативная реклама под ключ</p>
+        </div>
+        <div class="service-card tilt-card reveal reveal-scale" style="--delay:.45s">
+          <div class="service-icon">👤</div>
+          <p>Продвижение личного бренда</p>
+        </div>
+        <div class="service-card tilt-card reveal reveal-scale" style="--delay:.5s">
+          <div class="service-icon">🏆</div>
+          <p>Полное изучение ниши для тех, кто хочет войти в бизнес без опыта</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- СЕКЦИЯ 4: CTA + Форма -->
+  <section class="cta-section" id="form">
+    <div class="container">
+      <h2 class="cta-title reveal reveal-up">Начни действовать уже сейчас!</h2>
+      <p class="cta-subtitle reveal reveal-up" style="--delay:.15s">Оставь заявку и я свяжусь с тобой в течение 24ч.</p>
+
+      <form class="contact-form reveal reveal-up" style="--delay:.3s" onsubmit="handleSubmit(event)">
+        <div class="form-group">
+          <label for="name">Имя</label>
+          <input type="text" id="name" name="name" placeholder="Ваше имя" required />
+        </div>
+        <div class="form-group">
+          <label for="telegram">Ник в Telegram / WhatsApp</label>
+          <input type="text" id="telegram" name="telegram" placeholder="@username или номер" required />
+        </div>
+        <div class="form-group">
+          <label for="phone">Номер телефона</label>
+          <input type="tel" id="phone" name="phone" placeholder="+7 (___) ___-__-__" required />
+        </div>
+        <div class="form-group">
+          <label for="message">Сопроводительное письмо <span class="label-hint">(Твоя задача)</span></label>
+          <textarea id="message" name="message" placeholder="Опиши свою задачу или цель..." rows="5" required></textarea>
+        </div>
+        <button type="submit" class="btn-submit">Отправить заявку</button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>© 2026 Исмаил Рамазанов. Все права защищены.</p>
+  </footer>
+
+  <script src="js/main.js?v=11"></script>
+</body>
+</html>
