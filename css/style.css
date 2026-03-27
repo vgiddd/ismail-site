@@ -452,8 +452,13 @@ body.dark .services {
 
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 44px;
+}
+
+/* Последняя карточка одна в ряду (10-я из 10) → на всю ширину */
+.service-card:last-child:nth-child(3n + 1) {
+  grid-column: 1 / -1;
 }
 
 .service-card {
