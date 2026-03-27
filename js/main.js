@@ -123,7 +123,7 @@ function checkReveals() {
   reveals.forEach(el => {
     if (el.closest('.hero')) return;
     const rect = el.getBoundingClientRect();
-    const inView = rect.top < vh * 0.88 && rect.bottom > vh * 0.12;
+    const inView = rect.top < vh * 0.75 && rect.bottom > vh * 0.2;
 
     if (inView && !el.classList.contains('visible')) {
       showEl(el);
