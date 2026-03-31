@@ -8,12 +8,12 @@ async function handleSubmit(e) {
   const data = new FormData(e.target);
 
   const text = [
-    '📩 *Новая заявка с сайта*',
+    '📩 Новая заявка с сайта',
     '',
-    `👤 *Имя:* ${data.get('name')}`,
-    `💬 *Telegram / WhatsApp:* ${data.get('telegram')}`,
-    `📞 *Телефон:* ${data.get('phone')}`,
-    `📝 *Задача:* ${data.get('message')}`,
+    `👤 Имя: ${data.get('name')}`,
+    `💬 Telegram / WhatsApp: ${data.get('telegram')}`,
+    `📞 Телефон: ${data.get('phone')}`,
+    `📝 Задача: ${data.get('message')}`,
   ].join('\n');
 
   btn.textContent = 'Отправка...';
@@ -23,7 +23,7 @@ async function handleSubmit(e) {
     const res = await fetch(`https://api.telegram.org/bot${TG_TOKEN}/sendMessage`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ chat_id: TG_CHAT, text, parse_mode: 'Markdown' }),
+      body: JSON.stringify({ chat_id: TG_CHAT, text }),
     });
 
     if (res.ok) {
