@@ -1,18 +1,56 @@
 /* ── FORM ───────────────────────────────────── */
-function handleSubmit(e) {
+const TG_TOKEN  = '8674993047:AAEz7h-MMHX8A7cd607qu6McArjl0r1fpHk';
+const TG_CHAT   = '1782444605';
+
+async function handleSubmit(e) {
   e.preventDefault();
-  const btn = e.target.querySelector('.btn-submit');
-  btn.textContent = 'Заявка отправлена ✓';
-  btn.style.background = '#2DC982';
-  btn.style.color = '#fff';
+  const btn  = e.target.querySelector('.btn-submit');
+  const data = new FormData(e.target);
+
+  const text = [
+    '📩 *Новая заявка с сайта*',
+    '',
+    `👤 *Имя:* ${data.get('name')}`,
+    `💬 *Telegram / WhatsApp:* ${data.get('telegram')}`,
+    `📞 *Телефон:* ${data.get('phone')}`,
+    `📝 *Задача:* ${data.get('message')}`,
+  ].join('\n');
+
+  btn.textContent = 'Отправка...';
   btn.disabled = true;
-  e.target.reset();
-  setTimeout(() => {
-    btn.textContent = 'Отправить заявку';
-    btn.style.background = '';
-    btn.style.color = '';
+
+  try {
+    const res = await fetch(`https://api.telegram.org/bot${TG_TOKEN}/sendMessage`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ chat_id: TG_CHAT, text, parse_mode: 'Markdown' }),
+    });
+
+    if (res.ok) {
+      btn.textContent = 'Заявка отправлена ✓';
+      btn.style.background = '#2DC982';
+      btn.style.color = '#fff';
+      e.target.reset();
+      setTimeout(() => {
+        btn.textContent = 'Отправить заявку';
+        btn.style.background = '';
+        btn.style.color = '';
+        btn.disabled = false;
+      }, 4000);
+    } else {
+      throw new Error();
+    }
+  } catch {
+    btn.textContent = 'Ошибка — попробуй ещё раз';
+    btn.style.background = '#F25C5C';
+    btn.style.color = '#fff';
     btn.disabled = false;
-  }, 4000);
+    setTimeout(() => {
+      btn.textContent = 'Отправить заявку';
+      btn.style.background = '';
+      btn.style.color = '';
+    }, 3000);
+  }
 }
 
 document.querySelectorAll('a[href^="#"]').forEach(a => {
