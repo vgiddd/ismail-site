@@ -1,6 +1,6 @@
 /* ── FORM ───────────────────────────────────── */
 const TG_TOKEN  = '8674993047:AAEz7h-MMHX8A7cd607qu6McArjl0r1fpHk';
-const TG_CHAT   = '1782444605';
+const TG_CHAT   = '1688628335';
 
 async function handleSubmit(e) {
   e.preventDefault();
