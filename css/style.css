@@ -416,23 +416,23 @@ body.dark .why-card {
 .why-number {
   font-size: 2.8rem;
   font-weight: 900;
-  color: var(--blue-soft);
+  color: rgba(255,255,255,0.5);
   line-height: 1;
   margin-bottom: 16px;
 }
 
 .why-card p {
   font-size: 1.05rem;
-  color: var(--text-gray);
+  color: rgba(255,255,255,0.95);
   line-height: 1.6;
 }
 
 .why-card p strong {
-  color: var(--blue-dark);
+  color: #fff;
 }
 
 body.dark .why-card p strong {
-  color: #7eb8f0;
+  color: #fff;
 }
 
 body.dark .section-title {
@@ -504,8 +504,9 @@ body.dark .service-card {
 
 .service-card p {
   font-size: 0.97rem;
-  color: var(--text-gray);
+  color: rgba(255,255,255,0.95);
   line-height: 1.55;
+  font-weight: 500;
 }
 
 /* ── CTA + FORM ────────────────────────────── */
