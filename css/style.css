@@ -145,8 +145,18 @@ body.cursor-hover #cursor-follower {
 
 .ti-icon {
   position: absolute;
-  font-size: 1.25rem;
+  font-size: 1.4rem;
   line-height: 1;
+}
+
+.ti-sun {
+  color: #FFD600;
+  filter: drop-shadow(0 0 6px rgba(255,210,0,0.8));
+}
+
+.ti-moon {
+  color: #e8eef8;
+  filter: drop-shadow(0 0 5px rgba(200,220,255,0.7));
 }
 .ti-icon.ti-hidden { opacity: 0; pointer-events: none; }
 .ti-icon.anim-out-down { animation: ti-out-down 0.32s ease forwards; }
@@ -351,7 +361,7 @@ body.cursor-hover #cursor-follower {
   font-weight: 800;
   text-align: center;
   margin-bottom: 56px;
-  color: var(--blue-deep);
+  color: #ffffff;
   position: relative;
 }
 
@@ -378,7 +388,7 @@ body.cursor-hover #cursor-follower {
 }
 
 .why-card {
-  background: rgba(224, 130, 10, 0.75);
+  background: rgba(224, 130, 10, 0.6);
   backdrop-filter: blur(12px);
   border: 1px solid rgba(244,168,40,0.6);
   border-radius: 20px;
@@ -395,14 +405,40 @@ body.dark .cta-section {
   background: transparent !important;
 }
 
+body.dark .contact-form {
+  background: rgba(200, 110, 10, 0.35);
+  border-color: rgba(244,168,40,0.3);
+  box-shadow: 0 8px 32px rgba(180,90,0,0.2);
+}
+
+body.dark .form-group label {
+  color: rgba(255,255,255,0.9);
+}
+
+body.dark .label-hint {
+  color: rgba(255,255,255,0.5);
+}
+
+body.dark .form-group input,
+body.dark .form-group textarea {
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.18);
+  color: rgba(255,255,255,0.95);
+}
+
+body.dark .form-group input::placeholder,
+body.dark .form-group textarea::placeholder {
+  color: rgba(255,255,255,0.35);
+}
+
 body.dark .why-card {
-  background: rgba(255,255,255,0.06);
+  background: rgba(200, 110, 10, 0.35);
   backdrop-filter: blur(12px);
-  border-color: rgba(255,255,255,0.1);
+  border-color: rgba(244,168,40,0.3);
   box-shadow:
     0 4px 6px rgba(0,0,0,0.35),
-    0 12px 32px rgba(30,60,100,0.25),
-    inset 0 1px 0 rgba(255,255,255,0.05);
+    0 12px 32px rgba(180,90,0,0.2),
+    inset 0 1px 0 rgba(255,255,255,0.07);
 }
 
 .why-card:hover {
@@ -462,7 +498,7 @@ body.dark .services {
 }
 
 .service-card {
-  background: rgba(224, 130, 10, 0.75);
+  background: rgba(224, 130, 10, 0.6);
   backdrop-filter: blur(12px);
   border-radius: 16px;
   padding: 28px 24px;
@@ -478,13 +514,13 @@ body.dark .services {
 }
 
 body.dark .service-card {
-  background: rgba(255,255,255,0.06);
+  background: rgba(200, 110, 10, 0.35);
   backdrop-filter: blur(12px);
-  border-color: rgba(255,255,255,0.1);
+  border-color: rgba(244,168,40,0.3);
   box-shadow:
     0 2px 4px rgba(0,0,0,0.3),
-    0 8px 20px rgba(20,50,80,0.3),
-    inset 0 1px 0 rgba(255,255,255,0.04);
+    0 8px 20px rgba(180,90,0,0.2),
+    inset 0 1px 0 rgba(255,255,255,0.06);
 }
 
 .service-card:hover {
@@ -536,11 +572,12 @@ body.dark .service-card {
   max-width: 580px;
   margin: 0 auto;
   text-align: left;
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(224, 130, 10, 0.6);
+  border: 1px solid rgba(244,168,40,0.5);
   border-radius: 24px;
   padding: 48px 44px;
   backdrop-filter: blur(12px);
+  box-shadow: 0 8px 32px rgba(200,110,0,0.25);
 }
 
 .form-group {
@@ -550,27 +587,27 @@ body.dark .service-card {
 .form-group label {
   display: block;
   font-size: 0.9rem;
-  font-weight: 600;
-  color: rgba(255,255,255,0.9);
+  font-weight: 700;
+  color: #1a1a00;
   margin-bottom: 8px;
   letter-spacing: 0.3px;
 }
 
 .label-hint {
   font-weight: 400;
-  color: rgba(255,255,255,0.55);
+  color: rgba(0,0,0,0.45);
   font-size: 0.85rem;
 }
 
 .form-group input,
 .form-group textarea {
   width: 100%;
-  background: rgba(255,255,255,0.1);
-  border: 1px solid rgba(255,255,255,0.22);
+  background: rgba(255,255,255,0.35);
+  border: 1px solid rgba(0,0,0,0.15);
   border-radius: 12px;
   padding: 14px 18px;
   font-size: 0.97rem;
-  color: var(--white);
+  color: #1a1200;
   font-family: 'Inter', sans-serif;
   transition: border-color 0.2s, background 0.2s;
   outline: none;
@@ -578,7 +615,7 @@ body.dark .service-card {
 
 .form-group input::placeholder,
 .form-group textarea::placeholder {
-  color: rgba(255,255,255,0.38);
+  color: rgba(0,0,0,0.35);
 }
 
 .form-group input:focus,
