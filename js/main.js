@@ -26,6 +26,8 @@ async function handleSubmit(e) {
       body: JSON.stringify({ chat_id: TG_CHAT, text }),
     });
 
+    const json = await res.json();
+    if (!res.ok) console.error('TG error:', json);
     if (res.ok) {
       btn.textContent = 'Заявка отправлена ✓';
       btn.style.background = '#2DC982';
